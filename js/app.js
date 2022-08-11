@@ -221,7 +221,7 @@ function relax(){
 //   }}
 
 //  Productivity
- function productivity(){
+function productivity(){
   if(isPlaying){
     song[0].play();
     song[1].play();
@@ -231,21 +231,19 @@ function relax(){
     showHiddenVolume[6].style.display = 'block';
     isPlaying = false;
     playBtn[0].style.color = "#498374";
+   
     playBtn[1].style.color = "#498374";
     playBtn[6].style.color = "#498374";}
- else {song[0].pause(),
-  song[1].pause(),
-  song[6].pause(),
-  showHiddenVolume[0].style.display = 'none',
-  showHiddenVolume[1].style.display = 'none',
-  showHiddenVolume[6].style.display = 'none',
-  isPlaying = true,
-  playBtn[0].style.color = "#000",
-  playBtn[1].style.color = "#000",
-  playBtn[6].style.color = "#000"}
- }
+ else {
+  for (let i =0; i<12 ;i++){ 
 
-//  Noise Blocker
+    song[i].pause(),
+    showHiddenVolume[i].style.display = 'none',
+    isPlaying = true,
+    playBtn[i].style.color = "#000"
+ }
+ }}
+
  function noiseBlocker(){
   if(isPlaying){
     song[2].play();
@@ -258,19 +256,16 @@ function relax(){
     playBtn[2].style.color = "#498374";
     playBtn[5].style.color = "#498374";
     playBtn[7].style.color = "#498374";}
- else {song[5].pause(),
-  song[2].pause(),
-  song[7].pause(),
-  showHiddenVolume[2].style.display = 'none',
-  showHiddenVolume[5].style.display = 'none',
-  showHiddenVolume[7].style.display = 'none',
-  isPlaying = true,
-  playBtn[2].style.color = "#000",
-  playBtn[5].style.color = "#000",
-  playBtn[7].style.color = "#000"}
+    else {
+      for (let i =0; i<12 ;i++){ 
+        song[i].pause(),
+        showHiddenVolume[i].style.display = 'none',
+        isPlaying = true,
+        playBtn[i].style.color = "#000"
+     }
+     }
  }
-
-//  Motivation
+ 
  function motivation(){
   if(isPlaying){
     song[4].play();
@@ -283,19 +278,16 @@ function relax(){
     playBtn[4].style.color = "#498374";
     playBtn[6].style.color = "#498374";
     playBtn[10].style.color = "#498374";}
- else {song[4].pause(),
-  song[6].pause(),
-  song[10].pause(),
-  showHiddenVolume[4].style.display = 'none',
-  showHiddenVolume[6].style.display = 'none',
-  showHiddenVolume[10].style.display = 'none',
-  isPlaying = true,
-  playBtn[4].style.color = "#000",
-  playBtn[6].style.color = "#000",
-  playBtn[10].style.color = "#000"}
+    else {
+      for (let i =0; i<12 ;i++){ 
+        song[i].pause(),
+        showHiddenVolume[i].style.display = 'none',
+        isPlaying = true,
+        playBtn[i].style.color = "#000"
+     }
+     }
  }
   
-//  Sleep
  function sleep(){
   if(isPlaying){
     song[7].play();
@@ -308,16 +300,14 @@ function relax(){
     playBtn[7].style.color = "#498374";
     playBtn[8].style.color = "#498374";
     playBtn[9].style.color = "#498374";}
- else {song[7].pause(),
-  song[8].pause(),
-  song[9].pause(),
-  showHiddenVolume[7].style.display = 'none',
-  showHiddenVolume[8].style.display = 'none',
-  showHiddenVolume[9].style.display = 'none',
-  isPlaying = true,
-  playBtn[7].style.color = "#000",
-  playBtn[8].style.color = "#000",
-  playBtn[9].style.color = "#000"}
+    else {
+      for (let i =0; i<12 ;i++){ 
+        song[i].pause(),
+        showHiddenVolume[i].style.display = 'none',
+        isPlaying = true,
+        playBtn[i].style.color = "#000"
+     }
+    }
  }
 
 
