@@ -38,7 +38,8 @@ let volume_slider10 = document.querySelector(".volume_slider10");
 let volume_slider11 = document.querySelector(".volume_slider11");
 let volume_slider12 = document.querySelector(".volume_slider12");
 
-let allVolume = document.querySelector('allVolume');
+let allVolume = document.querySelector('.allVolume');
+let mute_volume = document.querySelector('#mute_volume');
 let isPlaying = true;
 
 let showHiddenVolume = document.querySelectorAll('.volume');
@@ -77,6 +78,54 @@ function setVolume(){
   song11.volume = volume_slider11.value / 100;
   song12.volume = volume_slider12.value / 100;
 }
+
+// set volume tổng
+function setAllVolume(){
+  song1.volume = allVolume.value / 100;
+  song2.volume = allVolume.value / 100;
+  song3.volume = allVolume.value / 100;
+  song4.volume = allVolume.value / 100;
+  song5.volume = allVolume.value / 100;
+  song6.volume = allVolume.value / 100;
+  song7.volume = allVolume.value / 100;
+  song8.volume = allVolume.value / 100;
+  song9.volume = allVolume.value / 100;
+  song10.volume = allVolume.value / 100;
+  song11.volume = allVolume.value / 100;
+  song12.volume = allVolume.value / 100;
+}
+
+mute_volume.addEventListener('click',function(){
+  if(this.classList.contains('fa-volume-high')){
+    this.classList.replace('fa-volume-high','fa-volume-xmark');
+    song[0].volume=0;
+    song[1].volume=0;
+    song[2].volume=0;
+    song[3].volume=0;
+    song[4].volume=0;
+    song[6].volume=0;
+    song[6].volume=0;
+    song[7].volume=0;
+    song[8].volume=0;
+    song[9].volume=0;
+    song[10].volume=0;
+    song[11].volume=0;
+  } else { 
+    this.classList.replace('fa-volume-xmark','fa-volume-high');
+    song[0].volume=1;
+    song[1].volume=1;
+    song[2].volume=1;
+    song[3].volume=1;
+    song[4].volume=1;
+    song[6].volume=1;
+    song[6].volume=1;
+    song[7].volume=1;
+    song[8].volume=1;
+    song[9].volume=1;
+    song[10].volume=1;
+    song[11].volume=1
+  }
+});
 
 // Top menu
 clearBtn.onclick = function clear() {
