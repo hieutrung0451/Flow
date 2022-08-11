@@ -56,7 +56,6 @@ let showHiddenVolume11 = document.querySelector('.volume_11')
 let showHiddenVolume12 = document.querySelector('.volume_12')
 
 
-// Top Menu
 let clearBtn = document.querySelector(".clear-button");
 let playlistBtn = document.querySelector(".playlist-btn");
 let musicBtn = document.querySelector(".music-btn");
@@ -79,9 +78,246 @@ function setVolume(){
   song12.volume = volume_slider12.value / 100;
 }
 
-//
+// Top menu
+clearBtn.onclick = function clear() {
+  for (let i = 0; i < song.length; i++) {
+    song[i].pause();
+    playBtn[i].style.color = "#000";
+    showHiddenVolume[i].style.display = 'none';
+  }
+}
 
-// Click icon để nghe và tắt
+musicBtn.onclick = function showAndHidden() {
+musicPlaylist.style.display = "flex";
+}
+
+playlistBtn.onclick = function showAndHidden() {
+musicPlaylist.style.display = "none";
+}
+
+// Playlist
+// Relax
+function relax(){
+  if(isPlaying){
+    song[3].play();
+    song[4].play();
+    song[7].play();
+    showHiddenVolume[3].style.display = 'block';
+    showHiddenVolume[4].style.display = 'block';
+    showHiddenVolume[7].style.display = 'block';
+    isPlaying = false;
+    playBtn[3].style.color = "#498374";
+    playBtn[4].style.color = "#498374";
+    playBtn[7].style.color = "#498374";}
+ else {song[3].pause(),
+  song[4].pause(),
+  song[7].pause(),
+  showHiddenVolume[3].style.display = 'none',
+  showHiddenVolume[4].style.display = 'none',
+  showHiddenVolume[7].style.display = 'none',
+  isPlaying = true,
+  playBtn[3].style.color = "#000",
+  playBtn[4].style.color = "#000",
+  playBtn[7].style.color = "#000"}  
+ }
+
+
+// function relax(){
+//   if(isPlaying){
+//     song[3].play();
+//     song[4].play();
+//     song[7].play();
+//     showHiddenVolume[3].style.display = 'block';
+//     showHiddenVolume[4].style.display = 'block';
+//     showHiddenVolume[7].style.display = 'block';
+//     isPlaying = false;
+//     playBtn[3].style.color = "#498374";
+//     playBtn[4].style.color = "#498374";
+//     playBtn[7].style.color = "#498374";
+//   } else if (isPlaying=true){ if( 
+
+//     song[0].play(),
+//     song[6].play(),
+//     song[9].play(),
+//     showHiddenVolume[0].style.display = 'block',
+//     showHiddenVolume[6].style.display = 'block',
+//     showHiddenVolume[9].style.display = 'block',
+//     isPlaying = false,
+//     playBtn[0].style.color = "#498374",
+//     playBtn[6].style.color = "#498374",
+//     playBtn[9].style.color = "#498374"
+//     ){
+//     song[3].pause(),
+//     song[4].pause(),
+//     song[7].pause(),
+//     showHiddenVolume[3].style.display = 'none',
+//     showHiddenVolume[4].style.display = 'none',
+//     showHiddenVolume[7].style.display = 'none',
+//     isPlaying = true,
+//     playBtn[3].style.color = "#000",
+//     playBtn[4].style.color = "#000",
+//     playBtn[7].style.color = "#000"
+   
+//   } else {song[0].pause(),
+//     song[6].pause(),
+//     song[9].play(),
+//     showHiddenVolume[0].style.display = 'none',
+//     showHiddenVolume[6].style.display = 'block',
+//     showHiddenVolume[9].style.display = 'block',
+//     isPlaying = false,
+//     playBtn[0].style.color = "#498374",
+//     playBtn[6].style.color = "#498374",
+//     playBtn[9].style.color = "#498374"}
+   
+//   }}
+
+//  Productivity
+ function productivity(){
+  if(isPlaying){
+    song[0].play();
+    song[1].play();
+    song[6].play();
+    showHiddenVolume[0].style.display = 'block';
+    showHiddenVolume[1].style.display = 'block';
+    showHiddenVolume[6].style.display = 'block';
+    isPlaying = false;
+    playBtn[0].style.color = "#498374";
+    playBtn[1].style.color = "#498374";
+    playBtn[6].style.color = "#498374";}
+ else {song[0].pause(),
+  song[1].pause(),
+  song[6].pause(),
+  showHiddenVolume[0].style.display = 'none',
+  showHiddenVolume[1].style.display = 'none',
+  showHiddenVolume[6].style.display = 'none',
+  isPlaying = true,
+  playBtn[0].style.color = "#000",
+  playBtn[1].style.color = "#000",
+  playBtn[6].style.color = "#000"}
+ }
+
+//  Noise Blocker
+ function noiseBlocker(){
+  if(isPlaying){
+    song[2].play();
+    song[5].play();
+    song[7].play();
+    showHiddenVolume[2].style.display = 'block';
+    showHiddenVolume[5].style.display = 'block';
+    showHiddenVolume[7].style.display = 'block';
+    isPlaying = false;
+    playBtn[2].style.color = "#498374";
+    playBtn[5].style.color = "#498374";
+    playBtn[7].style.color = "#498374";}
+ else {song[5].pause(),
+  song[2].pause(),
+  song[7].pause(),
+  showHiddenVolume[2].style.display = 'none',
+  showHiddenVolume[5].style.display = 'none',
+  showHiddenVolume[7].style.display = 'none',
+  isPlaying = true,
+  playBtn[2].style.color = "#000",
+  playBtn[5].style.color = "#000",
+  playBtn[7].style.color = "#000"}
+ }
+
+//  Motivation
+ function motivation(){
+  if(isPlaying){
+    song[4].play();
+    song[6].play();
+    song[10].play();
+    showHiddenVolume[4].style.display = 'block';
+    showHiddenVolume[6].style.display = 'block';
+    showHiddenVolume[10].style.display = 'block';
+    isPlaying = false;
+    playBtn[4].style.color = "#498374";
+    playBtn[6].style.color = "#498374";
+    playBtn[10].style.color = "#498374";}
+ else {song[4].pause(),
+  song[6].pause(),
+  song[10].pause(),
+  showHiddenVolume[4].style.display = 'none',
+  showHiddenVolume[6].style.display = 'none',
+  showHiddenVolume[10].style.display = 'none',
+  isPlaying = true,
+  playBtn[4].style.color = "#000",
+  playBtn[6].style.color = "#000",
+  playBtn[10].style.color = "#000"}
+ }
+  
+//  Sleep
+ function sleep(){
+  if(isPlaying){
+    song[7].play();
+    song[8].play();
+    song[9].play();
+    showHiddenVolume[7].style.display = 'block';
+    showHiddenVolume[8].style.display = 'block';
+    showHiddenVolume[9].style.display = 'block';
+    isPlaying = false;
+    playBtn[7].style.color = "#498374";
+    playBtn[8].style.color = "#498374";
+    playBtn[9].style.color = "#498374";}
+ else {song[7].pause(),
+  song[8].pause(),
+  song[9].pause(),
+  showHiddenVolume[7].style.display = 'none',
+  showHiddenVolume[8].style.display = 'none',
+  showHiddenVolume[9].style.display = 'none',
+  isPlaying = true,
+  playBtn[7].style.color = "#000",
+  playBtn[8].style.color = "#000",
+  playBtn[9].style.color = "#000"}
+ }
+
+
+// Random
+function randomSong(){
+  let randomSong = [
+  
+  ];
+for( let i = 0; i<3; ){
+  let randomIndex = Math.floor(Math.random()*12)
+  for(let j = 0; j<randomSong.length;j++){
+    if (randomSong[j]==randomIndex){
+    
+      break;
+    
+    }
+  }
+  i++
+  randomSong.push(Math.floor(Math.random()*12))
+}
+  for(let i = 0; i<randomSong.length;i++ ){
+    if (isPlaying){
+      song[randomSong[i]].play();
+      showHiddenVolume[randomSong[i]].style.display = 'block';
+      playBtn[randomSong[i]].style.color = "#498374";
+      isPlaying = false;
+    } else {
+    showHiddenVolume[randomSong[i]].style.display = 'none'; 
+    playBtn[randomSong[i]].style.color = "#0000";
+    song[randomSong[i]].pause();
+    isPlaying = true;
+    }
+    console.log(randomSong[i]);
+    
+  }
+}
+
+// dừng nhạc
+  function stopSounds(){
+    for (let i = 0; i < song.length; i++) {
+      song[i].pause();
+      playBtn[i].style.color = "#000";
+      showHiddenVolume[i].style.display = 'none';
+    }
+  }
+
+
+
+// Sounds
 playBtn1.onclick = function playPause(){
   if (isPlaying){
     showHiddenVolume1.style.display = 'block';
@@ -249,21 +485,4 @@ playBtn12.onclick = function playPause(){
     playBtn12.style.color = "#000";
     isPlaying = true;
   }
-}
-
-// Top menu
-clearBtn.onclick = function clear() {
-    for (let i = 0; i < song.length; i++) {
-      song[i].pause();
-      playBtn[i].style.color = "#000";
-      showHiddenVolume[i].style.display = 'none';
-    }
-}
-
-musicBtn.onclick = function showAndHidden() {
-  musicPlaylist.style.display = "flex";
-}
-
-playlistBtn.onclick = function showAndHidden() {
-  musicPlaylist.style.display = "none";
 }
