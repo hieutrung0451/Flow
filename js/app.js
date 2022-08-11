@@ -56,96 +56,8 @@ let showHiddenVolume10 = document.querySelector('.volume_10')
 let showHiddenVolume11 = document.querySelector('.volume_11')
 let showHiddenVolume12 = document.querySelector('.volume_12')
 
-
-let clearBtn = document.querySelector(".clear-button");
-let playlistBtn = document.querySelector(".playlist-btn");
-let musicBtn = document.querySelector(".music-btn");
-let musicPlaylist = document.querySelector(".music-playlist");
-
-
-// Set volume cho từng âm thanh
-function setVolume(){
-  song1.volume = volume_slider1.value / 100;
-  song2.volume = volume_slider2.value / 100;
-  song3.volume = volume_slider3.value / 100;
-  song4.volume = volume_slider4.value / 100;
-  song5.volume = volume_slider5.value / 100;
-  song6.volume = volume_slider6.value / 100;
-  song7.volume = volume_slider7.value / 100;
-  song8.volume = volume_slider8.value / 100;
-  song9.volume = volume_slider9.value / 100;
-  song10.volume = volume_slider10.value / 100;
-  song11.volume = volume_slider11.value / 100;
-  song12.volume = volume_slider12.value / 100;
-}
-
-// set volume tổng
-function setAllVolume(){
-  song1.volume = allVolume.value / 100;
-  song2.volume = allVolume.value / 100;
-  song3.volume = allVolume.value / 100;
-  song4.volume = allVolume.value / 100;
-  song5.volume = allVolume.value / 100;
-  song6.volume = allVolume.value / 100;
-  song7.volume = allVolume.value / 100;
-  song8.volume = allVolume.value / 100;
-  song9.volume = allVolume.value / 100;
-  song10.volume = allVolume.value / 100;
-  song11.volume = allVolume.value / 100;
-  song12.volume = allVolume.value / 100;
-}
-
-mute_volume.addEventListener('click',function(){
-  if(this.classList.contains('fa-volume-high')){
-    this.classList.replace('fa-volume-high','fa-volume-xmark');
-    song[0].volume=0;
-    song[1].volume=0;
-    song[2].volume=0;
-    song[3].volume=0;
-    song[4].volume=0;
-    song[6].volume=0;
-    song[6].volume=0;
-    song[7].volume=0;
-    song[8].volume=0;
-    song[9].volume=0;
-    song[10].volume=0;
-    song[11].volume=0;
-  } else { 
-    this.classList.replace('fa-volume-xmark','fa-volume-high');
-    song[0].volume=1;
-    song[1].volume=1;
-    song[2].volume=1;
-    song[3].volume=1;
-    song[4].volume=1;
-    song[6].volume=1;
-    song[6].volume=1;
-    song[7].volume=1;
-    song[8].volume=1;
-    song[9].volume=1;
-    song[10].volume=1;
-    song[11].volume=1
-  }
-});
-
-// Top menu
-clearBtn.onclick = function clear() {
-  for (let i = 0; i < song.length; i++) {
-    song[i].pause();
-    playBtn[i].style.color = "#000";
-    showHiddenVolume[i].style.display = 'none';
-  }
-}
-
-musicBtn.onclick = function showAndHidden() {
-musicPlaylist.style.display = "flex";
-}
-
-playlistBtn.onclick = function showAndHidden() {
-musicPlaylist.style.display = "none";
-}
-
-// Playlist
-// Relax
+//relax button
+ 
 function relax(){
   if(isPlaying){
     song[3].play();
@@ -158,16 +70,14 @@ function relax(){
     playBtn[3].style.color = "#498374";
     playBtn[4].style.color = "#498374";
     playBtn[7].style.color = "#498374";}
- else {song[3].pause(),
-  song[4].pause(),
-  song[7].pause(),
-  showHiddenVolume[3].style.display = 'none',
-  showHiddenVolume[4].style.display = 'none',
-  showHiddenVolume[7].style.display = 'none',
-  isPlaying = true,
-  playBtn[3].style.color = "#000",
-  playBtn[4].style.color = "#000",
-  playBtn[7].style.color = "#000"}  
+    else {
+      for (let i =0; i<12 ;i++){ 
+        song[i].pause(),
+        showHiddenVolume[i].style.display = 'none',
+        isPlaying = true,
+        playBtn[i].style.color = "#000"
+     }
+     }
  }
 
 
@@ -219,9 +129,7 @@ function relax(){
 //     playBtn[9].style.color = "#498374"}
    
 //   }}
-
-//  Productivity
-function productivity(){
+ function productivity(){
   if(isPlaying){
     song[0].play();
     song[1].play();
@@ -307,11 +215,13 @@ function productivity(){
         isPlaying = true,
         playBtn[i].style.color = "#000"
      }
-    }
+     }
  }
 
+// 
 
-// Random
+// random sounds
+
 function randomSong(){
   let randomSong = [
   
@@ -341,22 +251,88 @@ for( let i = 0; i<3; ){
     isPlaying = true;
     }
     console.log(randomSong[i]);
-    
+  }}
+//
+
+
+
+/// mute  nhạc
+mute_volume.addEventListener('click',function(){
+
+if(this.classList.contains('fa-volume-high')){
+this.classList.replace('fa-volume-high','fa-volume-xmark')
+song[0].volume=0;
+song[1].volume=0;
+song[2].volume=0;
+song[3].volume=0;
+song[4].volume=0;
+song[6].volume=0;
+song[6].volume=0;
+song[7].volume=0;
+song[8].volume=0;
+song[9].volume=0;
+song[10].volume=0;
+song[11].volume=0;
+} else{ this.classList.replace('fa-volume-xmark','fa-volume-high')
+song[0].volume=1;
+song[1].volume=1;
+song[2].volume=1;
+song[3].volume=1;
+song[4].volume=1;
+song[6].volume=1;
+song[6].volume=1;
+song[7].volume=1;
+song[8].volume=1;
+song[9].volume=1;
+song[10].volume=1;
+song[11].volume=1}
+})
+
+// Top Menu
+
+let clearBtn = document.querySelector(".clear-button");
+let playlistBtn = document.querySelector(".playlist-btn");
+let musicBtn = document.querySelector(".music-btn");
+let musicPlaylist = document.querySelector(".music-playlist");
+
+
+// Set volume cho từng âm thanh
+
+function setVolume(){
+  
+  song1.volume = volume_slider1.value / 100;
+  song2.volume = volume_slider2.value / 100;
+  song3.volume = volume_slider3.value / 100;
+  song4.volume = volume_slider4.value / 100;
+  song5.volume = volume_slider5.value / 100;
+  song6.volume = volume_slider6.value / 100;
+  song7.volume = volume_slider7.value / 100;
+  song8.volume = volume_slider8.value / 100;
+  song9.volume = volume_slider9.value / 100;
+  song10.volume = volume_slider10.value / 100;
+  song11.volume = volume_slider11.value / 100;
+  song12.volume = volume_slider12.value / 100;
   }
-}
+  // set volume tổng
+ function setAllVolume(){
+  song1.volume = allVolume.value / 100
+  song2.volume = allVolume.value / 100
+  song3.volume = allVolume.value / 100
+  song4.volume = allVolume.value / 100
+  song5.volume = allVolume.value / 100
+  song6.volume = allVolume.value / 100
+  song7.volume = allVolume.value / 100
+  song8.volume = allVolume.value / 100
+  song9.volume = allVolume.value / 100
+  song10.volume = allVolume.value / 100
+  song11.volume = allVolume.value / 100
+  song12.volume = allVolume.value / 100
+  
+ }
+//
 
-// dừng nhạc
-  function stopSounds(){
-    for (let i = 0; i < song.length; i++) {
-      song[i].pause();
-      playBtn[i].style.color = "#000";
-      showHiddenVolume[i].style.display = 'none';
-    }
-  }
 
-
-
-// Sounds
+// Click icon để nghe và tắt
 playBtn1.onclick = function playPause(){
   if (isPlaying){
     showHiddenVolume1.style.display = 'block';
@@ -524,4 +500,21 @@ playBtn12.onclick = function playPause(){
     playBtn12.style.color = "#000";
     isPlaying = true;
   }
+}
+
+// Top menu
+clearBtn.onclick = function clear() {
+    for (let i = 0; i < song.length; i++) {
+      song[i].pause();
+      playBtn[i].style.color = "#000";
+      showHiddenVolume[i].style.display = 'none';
+    }
+}
+
+musicBtn.onclick = function showAndHidden() {
+  musicPlaylist.style.display = "flex";
+}
+
+playlistBtn.onclick = function showAndHidden() {
+  musicPlaylist.style.display = "none";
 }
