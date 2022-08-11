@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Log In</title>
+    <link rel="stylesheet" href="../css/login.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Peralta&family=Roboto:wght@100;300&family=Vollkorn:wght@600&display=swap" rel="stylesheet">
+    <body>
+    <div class="container">
+        <div class="action">
+
+            <div class="logo">
+                <h2>Flow</h2>
+            </div>
+            <div class="intro">
+                <p> Welcome back! </p>
+
+                <p>Đăng nhập tài khoản của bạn.</p>
+            </div>
+            <form class="information">
+            <div class="login_Connect">
+                <div class="icon">
+                    <i class="fa-brands fa-google"></i> 
+                </div>
+                <a name="color" href="" style="text-decoration:none">
+                    Đăng nhập với Google </a> <br />
+                    
+
+            </div>
+            <div class="orLog">
+                <p>hoặc đăng nhập với Email</p>
+            </div>
+
+            </form>
+            <!-- Đăng nhập -->
+           <form onsubmit="login()" class="formLogin">
+                <div class="login_Email">
+                    <input id="username" type="text" placeholder="Email" id="username">
+                </div>
+
+                <div class="login_Password">
+                    <input id="password"   type="password" placeholder="Mật khẩu" id="password">
+                </div>
+                
+
+                <div class="login_Login">
+                    <button type="submit"> Đăng nhập </button>
+                </div>
+
+                <span id="error"></span><br>   
+            </form>
+             
+            <div class="login_Forgot">
+                <a href="">Quên mật khẩu?</a>
+            </div>
+
+            <div class="login_Support">
+                Bạn không có tài khoản? <a href="../template/signup.html">Đăng ký</a>
+            </div>
+        </div>
+
+        <div class="line">
+            
+        </div>
+        <div class="bigText">
+            
+            <div class="text_Welcome">
+
+                <img src="../images/login.svg" alt="login image" class="login-img">
+                <span> Oh, Hello. <br>
+                    Welcome Back!
+                </span>
+               
+            </div>
+            
+            
+        </div>
+    </div>
+
+    <script>
+      const user = [
+      {
+        username: "admin",
+        password: "123456",
+      },
+      {
+        username: "minh",
+        password: "12345678",
+      },
+      {
+        username: "hieu",
+        password: "123456",
+      },
+    ];
+    
+    const usernameInput = document.getElementById("username");
+    const passwordInput = document.getElementById("password");
+    const formLogin = document.querySelector("form.formLogin");
+    const error = document.getElementById("error");
+    
+ console.log(formLogin);
+    // Handle check account
+    formLogin.addEventListener("submit", (e) => {
+      e.preventDefault();
+      let flag = false;
+      for (let i = 0; i < user.length; i++) {
+        if (
+          user[i].username === usernameInput.value &&
+          user[i].password === passwordInput.value
+        ) {
+          // Đăng nhập thành công
+          flag = true; 
+          window.location.href = "../template/index.html";
+          flag = true; 
+          break;
+      }
+        }
+        
+    
+      if (flag === false) {
+        error.innerText = "Tài khoản sai";
+        error.style.color = "red"
+      } else {
+        error.innerText = "";
+      }
+    });
+    
+    </script>
+    
+    
+
+</body>
+
+
+
+</html>

@@ -1,0 +1,555 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: "Albert Sans", sans-serif;
+  font-weight: bold;
+}
+
+body {
+  height: 100%;
+  width: 100%;
+  background-color: #FFE8D6;
+}
+
+.main {
+  width: 100%;
+  height: 100%;
+}
+
+/* Global */
+a {
+  text-decoration: none;
+  color: #000000;
+}
+
+/* Header */
+.header {
+  width: 100%;
+  height: 76px;
+  padding: 30px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 2px solid #000;
+}
+
+.header h1 {
+  color: #498374;
+  font-weight: 700;
+}
+
+/* Pomodoro */
+.header .pomodoro {
+  color: #000;
+  position: relative;
+  width: 154px;
+  height: 44px;
+  border: 3px solid #000;
+  border-radius: 20px;
+}
+
+.pomodoro .pomodoro-cycles {
+  color: #000;
+  position: absolute;
+  width: 44px;
+  height: 44px;
+  border: 3px solid #000;
+  border-radius: 25px;
+  top: -2px;
+  left: -54px;
+}
+
+.pomodoro-cycles .cycle {
+  font-size: 20px;
+  text-align: center;
+  margin-top: 9px;
+}
+
+.pomodoro .pomodoro-time {
+  display: flex;
+  position: absolute;
+  top: 9px;
+  left: 16px;
+  font-size: 20px;
+}
+
+.pomodoro .pomodoro-btn {
+  position: absolute;
+  width: 44px;
+  height: 44px;
+  background-color: #000;
+  color: #fff;
+  border: 3px solid #000;
+  border-radius: 25px;
+  left: 160px;
+  top: -2px;
+}
+
+.pomodoro-btn i {
+  font-size: 20px;
+  text-align: center;
+  margin: 9px 13px;
+}
+
+
+.header .menu {
+  width: 250px;
+  height: 76px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  list-style-type: none;
+}
+
+/* Todo App */
+.lists {
+  font-size: 24px;
+  position: relative;
+  right: 95px;
+}
+
+.lists i:hover {
+  color: #498374;
+  transition: color 0.3s ease-out;
+}
+
+.lists .todo {
+  position: absolute;
+  background-color: #498374;
+  top: 24px;
+  right: -5px;
+  z-index: 1;
+  border-radius: 5%;
+  height: 300px;
+  width: 284px;
+  padding: 20px;
+  display: none; 
+  color: #fff;
+}
+
+.lists:hover .todo {
+  display: block;
+}
+
+.lists .todo-content {
+  padding: 3px 0px;
+}
+
+
+.todo .form-control button {
+  padding: 5px 10px;
+  border: none;
+  border-radius: 5%;
+  color: #fff;
+  background-color: #000;
+}
+
+.todo .form-control button:hover {
+  background-color: #fff;
+  color: #000;
+}
+
+.todo .list-task h4 {
+  padding: 10px 0;
+  font-size: 24px;
+}
+
+
+.todo .list-task .result li {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.todo .list-task .result .task-name {
+  font-size: 16px;
+  padding: 6px 10px;
+}
+
+.todo .list-task .result a {
+  font-size: 16px;
+  margin: 4px 0;
+}
+
+/* .todo .list-task .result a:nth-child(2) {
+  color: #000;
+  background-color: #28A745;
+  padding: 6px 10px;
+  border-radius: 5%;
+} */
+
+.todo .list-task .result a:nth-child(2) {
+  color: #fff;
+  background-color: #000;
+  padding: 6px 10px;
+  border-radius: 5%;
+}
+
+.todo .list-task .result a:nth-child(2):hover {
+  color: #000;
+  background-color: #fff;
+}
+
+
+/* Volume all */
+.volume-all {
+  position: relative;
+}
+
+.volume-all .range {
+  position: absolute;
+  right: 10px;
+  top: -5px;
+  display: none;
+}
+
+.volume-all:hover .range {
+  display: block;
+}
+
+/* Text Editor */
+.editor-icon {
+  position: relative;
+}
+
+.text-editor {
+  position: absolute;
+  width: 700px;
+  height: 500px;
+  background-color: rgb(73, 131, 116);
+  right: 256px;
+  top: 94px;
+  z-index: 1;
+  border-radius: 3%;
+  padding-left: 10px;
+  padding-top: 10px;
+}
+
+.text-editor .myText {
+  width: 676px;
+  height: 374px;
+  border: 2px solid #000;
+  background-color: #498374;
+  font-size: 16px;
+  color: #fff;
+}
+
+.text-editor .myText:focus {
+  outline: none;
+  border:3px solid #000;
+}
+
+/* User menu */
+.user {
+  position: relative;
+}
+
+.user .user-menu {
+  height: 40px;
+  width: 100px;
+  position: absolute;
+  background-color: #498374;
+  right: -2px;
+  border-radius: 5%;
+  display: none;
+  padding-top: 7px;
+}
+
+.user:hover .user-menu {
+  display: block;
+}
+
+.user .user-logout {
+  font-size: 16px;
+  color: #fff;
+  padding-left: 10px;
+}
+
+/* Main App */
+
+/* Thanh chỉnh volume tổng */
+
+.range>input {
+  -webkit-appearance: none;
+  /* Hides the slider so that custom slider can be made */
+
+  background: transparent;
+  /* Otherwise white in Chrome */
+
+  width: 150px;
+  height: 3px;
+  cursor: pointer;
+  /* box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d; */
+  background: #080808;
+  margin-right: 20px;
+
+}
+
+.range>input::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  background-color: #000000;
+  width: 15px;
+  height: 15px;
+  border-radius: 20px;
+}
+
+/* Icon menubar */
+.menu li {
+  font-size: 20px;
+}
+
+.menu .icon_menubar {
+  display: flex;
+  gap: 0px 15px
+}
+
+.menu li i:hover {
+  cursor: pointer;
+  color: #498374;
+  transition: color 0.3s ease-out;
+}
+
+/* Content */
+.content {
+  padding: 50px 90px;
+  height: 100px;
+}
+
+.img-flower {
+  top: 415px;
+  left: -93px;
+  width: 330px;
+  position: absolute;
+  opacity: 0.2;
+}
+
+.img-flower_2 {
+  position: absolute;
+  width: 290px;
+  right: 10px;
+  top: 500px;
+  opacity: 0.2;
+}
+
+.content .TopMenu {
+  display: flex;
+  font-size: 18px;
+  margin-top: 1%;
+  padding-bottom: 2%;
+  margin-left: 17.5%;
+  justify-content: space-between;
+  font-size: medium;
+  width: 64%;
+}
+
+.content .icon_playlist {
+  display: flex;
+  gap: 0px 10px;
+}
+
+.content .icon_playlist .icon {
+  height: 28px;
+  width: 90px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 15px;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+  border: 2px solid #000;
+}
+
+.content .icon_playlist .icon:hover {
+  background-color: #498374;
+  cursor: pointer;
+}
+
+.content .icon_playlist2 .icon:hover {
+  background-color: #498374;
+  cursor: pointer;
+}
+
+.content .icon_playlist .icon:hover>a {
+  transition: color 0.3s ease-out;
+  color: #fff;
+}
+
+.content .icon_playlist2 .icon:hover>a {
+  transition: color 0.3s ease-out;
+  color: #fff;
+}
+
+.content .icon_playlist2 {
+  display: flex;
+  gap: 0px 10px;
+}
+
+.content .icon_playlist2 .icon {
+  height: 28px;
+  width: 90px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 15px;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+  border: 2px solid #000;
+}
+
+.content .TopMenu .icon_playlist1.icon1 {
+  border-radius: 12px;
+  margin-left: 6px;
+}
+
+.content .TopMenu .icon_playlist2 {
+  margin-left: 10%;
+}
+
+.content .playlist {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.content .playlist .playlist__item>p {
+  font-size: 15px;
+}
+
+.playlist .playlist__item {
+  width: 170px;
+  height: 108px;
+  background: transparent;
+  border-radius: 20px;
+  margin-right: 20px;
+  padding: 20px;
+  text-align: center;
+  background: rgba(255, 255, 255, 0.1);
+  border: 2px solid #000;
+}
+
+.playlist__item i {
+  font-size: 32px;
+  margin-bottom: 10px;
+}
+
+.playlist__item p {
+  font-size: 18px;
+}
+
+.playlist__item:hover {
+  background-color: #498374;
+  color: #fff;
+  transition: color 0.3s ease-out;
+  cursor: pointer;
+}
+
+.music-playlist {
+  position: absolute;
+  top: 186px;
+  height: 111px;
+  width: 85%;
+  background-color: #FFE8D6;
+  display: none;
+}
+
+.sounds {
+  padding: 100px 240px 100px;
+  display: flex;
+  width: 100%;
+  height: 700px;
+  justify-content: space-between;
+  text-align: center;
+  flex-wrap: wrap;
+}
+
+.sounds .sounds__item {
+  font-size: 48px;
+  margin-bottom: 80px;
+  height: 10px;
+  flex: 1 0 21%;
+}
+
+.sounds .sounds__item:hover {
+  cursor: pointer;
+  color: #498374;
+  transition: color 0.2s ease-out;
+}
+
+
+/* Volume */
+.volume_1,
+.volume_2,
+.volume_3,
+.volume_4,
+.volume_5,
+.volume_6,
+.volume_7,
+.volume_8,
+.volume_9,
+.volume_10,
+.volume_11,
+.volume_12
+{
+  display: none;
+}
+
+/* Style volume range */
+.volume_1>input,
+.volume_2>input,
+.volume_3>input,
+.volume_4>input,
+.volume_5>input,
+.volume_6>input,
+.volume_7>input,
+.volume_8>input,
+.volume_9>input,
+.volume_10>input,
+.volume_11>input,
+.volume_12>input {
+  -webkit-appearance: none;
+  background: transparent;
+  width: 120px;
+  height: 3px;
+  cursor: pointer;
+  /* box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d; */
+  background: #498374;
+}
+
+.volume_1>input::-webkit-slider-thumb,
+.volume_2>input::-webkit-slider-thumb,
+.volume_3>input::-webkit-slider-thumb,
+.volume_4>input::-webkit-slider-thumb,
+.volume_5>input::-webkit-slider-thumb,
+.volume_6>input::-webkit-slider-thumb,
+.volume_7>input::-webkit-slider-thumb,
+.volume_8>input::-webkit-slider-thumb,
+.volume_9>input::-webkit-slider-thumb,
+.volume_10>input::-webkit-slider-thumb,
+.volume_11>input::-webkit-slider-thumb,
+.volume_12>input::-webkit-slider-thumb
+ {
+  -webkit-appearance: none;
+  background-color: #498374;
+  width: 15px;
+  height: 15px;
+  border-radius: 20px;
+}
+
+
+/* Footer */
+.footer {
+  height: 40px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  border-top: 2px solid #000;
+}
+
+.footer a {
+  margin-right: 2%;
+}
+
+.footer a:hover {
+  color: #498374;
+  transition: color 0.3s ease-out;
+}

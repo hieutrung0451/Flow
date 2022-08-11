@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Sign Up </title>
+    <link rel="stylesheet" href="../css/signup.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Peralta&family=Roboto:wght@100;300&family=Vollkorn:wght@600&display=swap" rel="stylesheet">
+    <body>
+    <div class="container">
+       
+        <div class="action">
+
+            <div class="logo">
+                <h2>Flow</h2>
+            </div>
+            <div class="intro">
+                <p> Nice to meet you! </p>
+                <p>Đăng ký một tài khoản mới.</p>
+            </div>
+            <form class="information">
+            <div class="login_Connect">
+                <div class="icon">
+                    <i class="fa-brands fa-google"></i> 
+                </div>
+                <a name="color" href="" style="text-decoration:none">
+                    Đăng ký với Google </a> <br />
+            </div>
+            <div class="orSign">
+                <p>Đăng ký với Email của bạn</p>
+            </div>
+        </form>      
+           <form onsubmit="signup()"  class="formLogin">
+            <div class="login_Email">
+                <input id="username" type="text" placeholder="Tên người dùng">
+            </div>
+            <div class="input__field">
+                <input id="email" type="email" placeholder="Email" />
+              </div>
+            <div class="login_Password">
+                <input id="password"  type="password" placeholder="Mật khẩu">
+            </div>
+            <div class="input__field">
+                <input id="Confirmpassword" type="password" placeholder="Nhập lại mật khẩu" />
+              </div>
+            <div class="login_Login">
+                <button id="btnSignup" class="btn" type="submit" style="text-decoration:none">Đăng ký miễn phí</button>
+            </div>   
+            <span id="error"></span><br>    
+           </form>             
+                   
+            <div class="login_Forgot">
+                 I agree to Flow's  <a href="" style='margin-left: 5px;'> Điều khoản và quyền riêng tư</a>
+            </div>
+
+            <div class="login_Support">
+                Bạn đã đăng ký?  <a href="../template/login.html">Đăng nhập</a>
+            </div>
+        </div>
+
+        <div class="line">
+            
+        </div>
+        <div class="bigText">
+            
+            <div class="text_Welcome">
+                <img src="../images/signup.svg" alt="" class="src" style="width: 500px;">
+                <span> Welcome to Flow,
+                    <br> your digital place for focus.
+                </span>
+            </div>
+            
+            
+        </div>
+    </div>
+
+<script>
+
+function signup(e) {
+  event.preventDefault();
+  let username = document.getElementById("username").value;
+  let email = document.getElementById("email").value;
+  let password = document.getElementById("password").value;
+  let Confirmpassword = document.getElementById("Confirmpassword").value;
+
+  const user = {
+    username: username,
+    email: email,
+    password: password,
+  };
+  let json = JSON.stringify(user);
+  localStorage.setItem(username, json); 
+  
+}
+function signup(e) {
+  event.preventDefault();
+  let username = document.getElementById("username").value;
+  let email = document.getElementById("email").value;
+  let password = document.getElementById("password").value;
+  let Confirmpassword = document.getElementById("Confirmpassword").value;
+  let user = localStorage.getItem(username);
+  let data = JSON.parse(user);
+
+  if (
+    username == data.username ||
+    email == data.email
+  ) {
+    alert(" Đăng kí thành công ");
+    window.location.href = "../template/index.html";
+  }
+
+  else if(password!=Confirmpassword){
+    alert(" Bạn nhập sai mật khẩu")
+  }
+  else {
+    alert("Bạn cần nhập đầy đủ thông tin");
+  }
+}
+</script>
+</body>
+</html>
