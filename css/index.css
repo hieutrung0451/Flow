@@ -34,7 +34,7 @@ main {
 }
 
 .header .menu {
-    width: 25rem;
+    width: 13rem;
     height: auto;
     display: flex;
     justify-content: space-around;
@@ -48,6 +48,13 @@ main {
     color: white;
     background-color: #000;
     padding: 10px 15px;
+    border-radius: 20px;
+}
+
+.menu .signUp-btn {
+    padding: 10px 15px;
+    background-color: #000;
+    color: #fff;
     border-radius: 20px;
 }
 
@@ -90,14 +97,7 @@ main {
     height: 390px;
 }
 
-/* Content -- test Sound */
-.content-testSounds {
-    
-}
-
-
 /* Content -- how it work */
-
 .content-howItWork {
     width: 100%;
     margin-top: 200px;
