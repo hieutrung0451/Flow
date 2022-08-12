@@ -21,7 +21,7 @@
             <div class="intro">
                 <p> Welcome back! </p>
 
-                <p>Đăng nhập tài khoản của bạn.</p>
+                <p>Đăng nhập</p>
             </div>
             <form class="information">
             <div class="login_Connect">
@@ -34,21 +34,21 @@
 
             </div>
             <div class="orLog">
-                <p>hoặc đăng nhập với Email</p>
+                <p>Hoặc đăng nhập với tên đăng nhập của bạn</p>
             </div>
 
             </form>
-            <!-- Đăng nhập -->
-           <form onsubmit="login()" class="formLogin">
+        <!-- Đăng nhập -->
+           <form  class="formLogin">
                 <div class="login_Email">
-                    <input id="username" type="text" placeholder="Email" id="username">
+                    <input id="username" type="text" placeholder="Username" id="username">
                 </div>
 
                 <div class="login_Password">
-                    <input id="password"   type="password" placeholder="Mật khẩu" id="password">
+                    <input id="password"   type="password" placeholder="Password" id="password">
                 </div>
                 
-
+                
                 <div class="login_Login">
                     <button type="submit"> Đăng nhập </button>
                 </div>
@@ -72,7 +72,7 @@
             
             <div class="text_Welcome">
 
-                <img src="https://hieutrung0451.github.io/Flow/images/login.svg" alt="login image" class="login-img">
+                <img src="https://hieutrung0451.github.io/Flow/images/login.svg" alt="" class="src"  style="width: 500px; ">
                 <span> Oh, Hello. <br>
                     Welcome Back!
                 </span>
@@ -84,27 +84,17 @@
     </div>
 
     <script>
-      const user = [
-      {
-        username: "admin",
-        password: "123456",
-      },
-      {
-        username: "minh",
-        password: "12345678",
-      },
-      {
-        username: "hieu",
-        password: "123456",
-      },
-    ];
+      
+    let user=JSON.parse(localStorage.getItem("userlist")) 
+    console.log(user);
     
     const usernameInput = document.getElementById("username");
     const passwordInput = document.getElementById("password");
     const formLogin = document.querySelector("form.formLogin");
     const error = document.getElementById("error");
-    
- console.log(formLogin);
+
+    // Handle check account
+    console.log(formLogin);
     // Handle check account
     formLogin.addEventListener("submit", (e) => {
       e.preventDefault();
@@ -115,14 +105,12 @@
           user[i].password === passwordInput.value
         ) {
           // Đăng nhập thành công
-          flag = true; 
+          
           window.location.href = "https://hieutrung0451.github.io/Flow/template/app.html";
           flag = true; 
           break;
       }
         }
-        
-    
       if (flag === false) {
         error.innerText = "Tài khoản sai";
         error.style.color = "red"
@@ -130,13 +118,9 @@
         error.innerText = "";
       }
     });
-    
+
+
     </script>
     
     
-
-</body>
-
-
-
 </html>

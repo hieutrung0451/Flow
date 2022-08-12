@@ -9,11 +9,14 @@
     <link rel="stylesheet" href="https://hieutrung0451.github.io/Flow/css/signup.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Peralta&family=Roboto:wght@100;300&family=Vollkorn:wght@600&display=swap" rel="stylesheet">
-    <body>
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Peralta&family=Roboto:wght@100;300&family=Vollkorn:wght@600&display=swap"
+        rel="stylesheet">
+
+<body>
     <div class="container">
-       
+
         <div class="action">
 
             <div class="logo">
@@ -21,106 +24,99 @@
             </div>
             <div class="intro">
                 <p> Nice to meet you! </p>
-                <p>Đăng ký một tài khoản mới.</p>
+                <p>Đăng ký miễn phí.</p>
             </div>
             <form class="information">
-            <div class="login_Connect">
-                <div class="icon">
-                    <i class="fa-brands fa-google"></i> 
+                <div class="login_Connect">
+                    <div class="icon">
+                        <i class="fa-brands fa-google"></i>
+                    </div>
+                    <a name="color" href="" style="text-decoration:none">
+                        Đăng ký với Google </a> <br />
                 </div>
-                <a name="color" href="" style="text-decoration:none">
-                    Đăng ký với Google </a> <br />
-            </div>
-            <div class="orSign">
-                <p>Đăng ký với Email của bạn</p>
-            </div>
-        </form>      
-           <form onsubmit="signup()"  class="formLogin">
-            <div class="login_Email">
-                <input id="username" type="text" placeholder="Tên người dùng">
-            </div>
-            <div class="input__field">
-                <input id="email" type="email" placeholder="Email" />
-              </div>
-            <div class="login_Password">
-                <input id="password"  type="password" placeholder="Mật khẩu">
-            </div>
-            <div class="input__field">
-                <input id="Confirmpassword" type="password" placeholder="Nhập lại mật khẩu" />
-              </div>
-            <div class="login_Login">
-                <button id="btnSignup" class="btn" type="submit" style="text-decoration:none">Đăng ký miễn phí</button>
-            </div>   
-            <span id="error"></span><br>    
-           </form>             
-                   
+                <div class="orSign">
+                    <p>Đăng ký</p>
+                </div>
+            </form>
+            <form onsubmit="signup()" class="formLogin">
+                <div class="login_Email">
+                    <input id="username" type="text" placeholder="Username">
+                </div>
+                <div class="input__field">
+                    <input id="email" type="email" placeholder="Email" />
+                </div>
+                <div class="login_Password">
+                    <input id="password" type="password" placeholder="Password">
+                </div>
+                <div class="input__field">
+                    <input id="Confirmpassword" type="password" placeholder="Confirm Password" />
+                </div>
+                <div class="login_Login">
+                    <button onsubmit="signup" id="btnSignup" class="btn" type="submit" style="text-decoration:none">Sign
+                        Up for Free </button>
+                </div>
+                <span id="error"></span><br>
+            </form>
+
             <div class="login_Forgot">
-                 I agree to Flow's  <a href="" style='margin-left: 5px;'> Điều khoản và quyền riêng tư</a>
+
+                Tôi đồng ý với <a href="" style='margin-left: 5px;'> Điều khoản & Quyền riêng tư</a>
             </div>
 
             <div class="login_Support">
-                Bạn đã đăng ký?  <a href="https://hieutrung0451.github.io/Flow/template/login.html">Đăng nhập</a>
+                Bạn đã có tài khoản? <a href="https://hieutrung0451.github.io/Flow/template/login.html">Đăng nhập</a>
             </div>
         </div>
 
         <div class="line">
-            
+
         </div>
         <div class="bigText">
-            
+
             <div class="text_Welcome">
                 <img src="https://hieutrung0451.github.io/Flow/images/signup.svg" alt="" class="src" style="width: 500px;">
                 <span> Welcome to Flow,
                     <br> your digital place for focus.
                 </span>
             </div>
-            
-            
+
+
         </div>
     </div>
 
-<script>
+    <script>
 
-function signup(e) {
-  event.preventDefault();
-  let username = document.getElementById("username").value;
-  let email = document.getElementById("email").value;
-  let password = document.getElementById("password").value;
-  let Confirmpassword = document.getElementById("Confirmpassword").value;
+    if(!localStorage.getItem("userlist")){   
+      localStorage.setItem("userlist",JSON.stringify([]));
+    }
+    
+    function signup(e) {
+      event.preventDefault();
+      let username = document.getElementById("username");
+      let email = document.getElementById("email");
+      let password = document.getElementById("password");
+      let Confirmpassword = document.getElementById("Confirmpassword");
 
-  const user = {
-    username: username,
-    email: email,
-    password: password,
-  };
-  let json = JSON.stringify(user);
-  localStorage.setItem(username, json); 
-  
-}
-function signup(e) {
-  event.preventDefault();
-  let username = document.getElementById("username").value;
-  let email = document.getElementById("email").value;
-  let password = document.getElementById("password").value;
-  let Confirmpassword = document.getElementById("Confirmpassword").value;
-  let user = localStorage.getItem(username);
-  let data = JSON.parse(user);
+      localStorage.getItem("userlist");
+      console.log(localStorage.getItem("userlist"))
+      let userlist = JSON.parse(localStorage.getItem('userlist'))
+      console.log(userlist)
+      for (let e of userlist) {
+          if (e.username == username) {
+          document.write("Tài khoản đã tồn tại");
+          }
+      }
+      let user = {
+          username: username.value,
+          email: email.value,
+          password: password.value,
+          Confirmpassword: Confirmpassword.value,
+      };
 
-  if (
-    username == data.username ||
-    email == data.email
-  ) {
-    alert(" Đăng kí thành công ");
-    window.location.href = "https://hieutrung0451.github.io/Flow/template/app.html";
-  }
+      userlist.push(user);
+      localStorage.setItem("userlist",JSON.stringify(userlist));
+    }
 
-  else if(password!=Confirmpassword){
-    alert(" Bạn nhập sai mật khẩu")
-  }
-  else {
-    alert("Bạn cần nhập đầy đủ thông tin");
-  }
-}
-</script>
+    </script>
 </body>
 </html>
