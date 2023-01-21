@@ -6,7 +6,7 @@
 </p>
 
 
-## Giao diện sản phẩm
+## Sản phẩm
 <a href="https://hieutrung0451.github.io/Flow/" alt="link demo">Demo sản phẩm</a>
 <p align="center">
   <img src="./readme_img/screen-shot.png">
